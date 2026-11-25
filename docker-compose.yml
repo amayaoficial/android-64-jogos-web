@@ -1,6 +1,6 @@
 services:
   redroid-games:
-    image: erstt/redroid:12.0.0_houdini_magisk
+    image: redroid/redroid:12.0.0-latest
     container_name: redroid-games
     privileged: true
     tty: true
@@ -11,8 +11,6 @@ services:
       - androidboot.redroid_width=1280
       - androidboot.redroid_height=720
       - androidboot.redroid_density=240
-      - ro.enable.native.bridge.exec64=1
-      - ro.dalvik.vm.native.bridge=libhoudini.so
     restart: unless-stopped
 
   ws-scrcpy:
