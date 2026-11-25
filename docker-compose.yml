@@ -1,1 +1,25 @@
+services:
+  redroid-games:
+    image: erstt/redroid:latest
+    container_name: redroid-games
+    privileged: true
+    tty: true
+    stdin_open: true
+    volumes:
+      - ./redroid-games-data:/data
+    command:
+      - androidboot.redroid_width=1280
+      - androidboot.redroid_height=720
+      - androidboot.redroid_density=240
+      - ro.enable.native.bridge.exec64=1
+      - ro.dalvik.vm.native.bridge=libhoudini.so
+    restart: unless-stopped
 
+  ws-scrcpy:
+    image: smanx/ws-scrcpy
+    container_name: ws-scrcpy-games
+    ports:
+      - "8000:8000"
+    depends_on:
+      - redroid-games
+    restart: unless-stopped
