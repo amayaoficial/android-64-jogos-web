@@ -1,12 +1,12 @@
 services:
   redroid-games:
-    image: erstt/redroid:latest
+    image: erstt/redroid:12.0.0_houdini_magisk
     container_name: redroid-games
     privileged: true
     tty: true
     stdin_open: true
     volumes:
-      - ./redroid-games-data:/data
+      - ./redroid-12-data:/data
     command:
       - androidboot.redroid_width=1280
       - androidboot.redroid_height=720
